@@ -9,7 +9,7 @@ const conveyanceSchema = new Schema({
     lowercase: true,
   },
   emission_factor: {
-    type: Schema.Types.Decimal128,
+    type: Number,
     required: true,
   }
 })
