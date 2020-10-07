@@ -1,6 +1,6 @@
 const travels = require('../components/travel/network')
 
-const routes = function (server) {
+const routes = server => {
   server.use('/travels', travels)
 }
 
