@@ -13,7 +13,7 @@ const TravelsList = () => {
     <>
       <h1>Travel List</h1>
       <Link to='/travels/create' className='btn btn-primary'>
-          Empezar!
+          Añadir nuevo registro
       </Link>
       {
         data ?
