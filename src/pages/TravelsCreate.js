@@ -5,11 +5,10 @@ import axios from 'axios'
 
 const TravelsCreate = () => {
   const [ conveyances, setConveyances ] = useState()
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm()
   useEffect(() => {
     axios.get('http://localhost:5000/conveyance')
       .then(resp => {
-        console.log(resp.data.body)
         setConveyances(resp.data.body)
       })
   }, [])
@@ -21,7 +20,6 @@ const TravelsCreate = () => {
     .catch(function (error) {
       console.log(error);
     });
-    console.log(data)
   } 
   return (
     <>
@@ -30,11 +28,13 @@ const TravelsCreate = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label htmlFor="start_address">Punto de partida</label>
-          <input name="start_address" type="text" className="form-control" id="start_address" ref={register({ required: true })} />
+          <input name="start_address" type="text" className="form-control" id="start_address" ref={register({ required: true, message: 'test' })} />
+          {errors.start_address && <span>This field is required</span>}
         </div>
         <div className="form-group">
           <label htmlFor="end_address">Punto de termino</label>
           <input name="end_address" type="text" className="form-control" id="end_address" ref={register({ required: true })} />
+          {errors.end_address && <span>This field is required</span>}
         </div>
         <div className="form-group">
           <label htmlFor="transportation">Medio de transporte</label>
@@ -49,18 +49,22 @@ const TravelsCreate = () => {
               : <option>Cargando...</option>
             }
           </select>
+          {errors.transportation && <span>This field is required</span>}
         </div>
         <div className="form-group">
           <label htmlFor="km">Cantidad de Kilometros</label>
           <input name="km" type="number" className="form-control" id="km" ref={register({ required: true })} />
+          {errors.km && <span>This field is required</span>}
         </div>
         <div className="form-group">
           <label htmlFor="number_workers">Cantidad de trabajadores</label>
           <input name="number_workers" type="number" className="form-control" id="number_workers" ref={register({ required: true })} />
+          {errors.number_workers && <span>This field is required</span>}
         </div>
         <div className="form-group form-check">
           <input name="round_trip" type="checkbox" className="form-check-input" id="round_trip" />
           <label className="form-check-label" htmlFor="round_trip">Ida y vuelta</label>
+          {errors.round_trip && <span>This field is required</span>}
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
