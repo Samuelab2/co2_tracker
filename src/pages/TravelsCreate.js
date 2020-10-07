@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import EmissionsCard from '../components/EmissionsCard'
 import TravelForm from '../components/TravelForm'
@@ -11,6 +11,7 @@ const TravelsCreate = () => {
   const [ inputRoundTrip, setInputRoundTrip ] = useState(1)
   const [ totalCoFoot, setTotalCoFootCount ] = useState(0)
   const [ startDate, setStartDate ] = useState(new Date())
+  const history = useHistory()
 
   useEffect(() => {
     axios.get('http://localhost:5000/conveyance')
@@ -36,7 +37,8 @@ const TravelsCreate = () => {
     console.log(formatedData)
     axios.post('http://localhost:5000/travels/new', formatedData)
     .then(function (response) {
-      console.log(response);
+      console.log(response)
+      history.push('/travels')
     })
     .catch(function (error) {
       console.log(error);
