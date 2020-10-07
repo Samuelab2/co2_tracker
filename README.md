@@ -38,18 +38,26 @@
 
 7. En la consola deberiamos ver los siguientes mensajes:
 
-`Server is running on port: 5000`
+`Server is running on port: 5000` y
 `MongoDB database connection established successfully`
 
 8. Navigate to the project in your browser
 
 `localhost:5000/travels`
 
-## Usage
+# Frontend
 
-```sh
-yarn run start
-```
+1. En una nueva terminal, nos aseguramos que estemos en la raiz del proyecto (`cd co2_tracker`) y ejecutamos:
+
+`yarn install`
+
+6. Una vez terminada la instalacion, ejecutamos:
+
+`yarn run start`
+
+8. Navigate to the project in your browser
+
+`localhost:3000`
 
 ## Run tests
 
@@ -61,12 +69,9 @@ yarn run test
 
 👤 **Samuel Mata**
 
-* Website: samuelmata.tech
+* Website: [samuelmata.tech](https://samuelmata.tech)
 * Github: [@Samuelab2](https://github.com/Samuelab2)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
