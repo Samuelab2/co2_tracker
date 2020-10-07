@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 
 const TravelsCreate = () => {
@@ -9,6 +11,7 @@ const TravelsCreate = () => {
   const [ inputKM, setInputKM ] = useState(0)
   const [ inputRoundTrip, setInputRoundTrip ] = useState(1)
   const [ totalCoFoot, setTotalCoFootCount ] = useState(0)
+  const [startDate, setStartDate] = useState(new Date())
   const { register, handleSubmit, errors } = useForm()
 
   useEffect(() => {
@@ -28,9 +31,11 @@ const TravelsCreate = () => {
   const onSubmit = (data) => {
     const formatedData = {
       ...data,
+      date: startDate,
       transportation: inputTransportation._id,
       total_CO2: totalCoFoot
     }
+    console.log(formatedData)
     axios.post('http://localhost:5000/travels/new', formatedData)
     .then(function (response) {
       console.log(response);
@@ -59,8 +64,12 @@ const TravelsCreate = () => {
       <Link to="/travels" className='btn btn-primary'>Volver</Link>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
+          <label htmlFor="date">Fecha</label> <br/>
+          <DatePicker showTimeSelect dateFormat="dd/MM/yyyy" className="form-control" selected={startDate} onChange={date => setStartDate(date)} />
+        </div>
+        <div className="form-group">
           <label htmlFor="start_address">Punto de partida</label>
-          <input name="start_address" type="text" className="form-control" id="start_address" ref={register({ required: true, message: 'test' })} />
+          <input name="start_address" type="text" className="form-control" id="start_address" ref={register({ required: true })} />
           {errors.start_address && <span>This field is required</span>}
         </div>
         <div className="form-group">
@@ -103,7 +112,6 @@ const TravelsCreate = () => {
       <p>{inputTransportation.emission_factor}</p>
       <p>{inputKM}</p>
       <p>{inputRoundTrip}</p>
-      {/* <p>total: {(inputTransportation.emission_factor * inputKM * inputRoundTrip).toFixed(2)}</p> */}
       <p>{totalCoFoot}</p>
     </>
   )

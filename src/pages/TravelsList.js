@@ -38,7 +38,10 @@ const TravelsList = () => {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>test</td>
+                    <td>
+                      { new Date(travel.date).toLocaleDateString('es-ES') }, 
+                      { new Date(travel.date).toLocaleTimeString('es-ES') }
+                      </td>
                     <td>{travel.start_address}</td>
                     <td>{travel.end_address}</td>
                     <td>{travel.km}</td>

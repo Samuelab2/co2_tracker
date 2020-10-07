@@ -3,6 +3,10 @@ const { Schema, model } = mongoose
 const Conveyance = require('../conveyance/model')
 
 const travelSchema = new Schema({
+  date: {
+    type: Date,
+    required: true,
+  },
   start_address: {
     type: String,
     required: true,

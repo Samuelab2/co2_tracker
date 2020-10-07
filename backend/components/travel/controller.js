@@ -1,17 +1,17 @@
 const store = require('./store')
-const conveyanceStore = require('../conveyance/store')
 
 const getTravels = () => {
   return store.list()
 }
 
-const addTravel = (start_address, end_address, transportation, km, number_workers, round_trip, total_CO2) => {
-  if(!start_address || !end_address || !transportation || !km || !number_workers) {
+const addTravel = (date, start_address, end_address, transportation, km, number_workers, round_trip, total_CO2) => {
+  if(!date || !start_address || !end_address || !transportation || !km || !number_workers) {
     console.error('[travel controller] Faltan datos por suministrar en el request')
     return 'Los datos son incorrectos'
   }
 
   const fullTravelData = {
+    date,
     start_address,
     end_address,
     transportation,
