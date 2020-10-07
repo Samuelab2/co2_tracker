@@ -24,37 +24,7 @@ const addTravel = (date, start_address, end_address, transportation, km, number_
   return fullTravelData
 }
 
-
-// function updateMessage(id, message) {
-//   return new Promise(async (resolve, reject) => {
-//     if (!id || !message) {
-//       reject('Invalid data')
-//       return false
-//     }
-//     const result = await store.updateText(id, message)
-//     resolve(result)
-//   })
-// }
-
-// function deleteMessage(id) {
-//   return new Promise((resolve, reject) => {
-//     if (!id) {
-//       reject('Id invalido')
-//       return false
-//     }
-//     store.remove(id)
-//       .then(() => {
-//         resolve()
-//       })
-//       .catch(e => {
-//         reject(e)
-//       })
-//   })
-// }
-
 module.exports = {
   addTravel,
   getTravels,
-  // updateMessage,
-  // deleteMessage,
 }
