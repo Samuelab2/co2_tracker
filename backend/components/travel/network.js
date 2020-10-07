@@ -3,12 +3,22 @@ const router = express.Router()
 const response = require('../../network/response')
 const controller = require('./controller')
 
-router.get('/', function (req, res) {
-  res.send('main app')
+router.get('/', async (req, res) => {
+  try {
+    const data = await controller.getTravels()
+    response.success(req, res, data, 200)
+  } catch (e) {
+    response.error(req, res, 'Hubo un error al intentar obtener la información', 400, e)
+  }
 })
 
-router.post('/new', function (req, res) {
-  res.send('create app')
+router.post('/new', async (req, res) => { 
+  try {
+    const data = await controller.addTravel(req.body.start_addres, req.body.end_addres, req.body.transportation, req.body.km, req.body.number_workers, req.body.round_trip)
+    response.success(req, res, data, 201)
+  } catch (e) {
+    response.error(req, res, 'Informacion invalida', 400, e)
+  }
 })
 
 module.exports = router
