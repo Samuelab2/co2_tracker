@@ -3,14 +3,14 @@ const { Schema, model } = mongoose
 const Conveyance = require('../conveyance/model')
 
 const travelSchema = new Schema({
-  start_addres: {
+  start_address: {
     type: String,
     required: true,
     trim: true,
     lowercase: true,
     minlength: 10
   },
-  end_addres: {
+  end_address: {
     type: String,
     required: true,
     trim: true,

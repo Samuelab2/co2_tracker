@@ -4,15 +4,15 @@ const getTravels = () => {
   return store.list()
 }
 
-const addTravel = (start_addres, end_addres, transportation, km, number_workers, round_trip) => {
-  if(!start_addres || !end_addres || !transportation || !km || !number_workers) {
+const addTravel = (start_address, end_address, transportation, km, number_workers, round_trip) => {
+  if(!start_address || !end_address || !transportation || !km || !number_workers) {
     console.error('[travel controller] Faltan datos por suministrar en el request')
     return 'Los datos son incorrectos'
   }
 
   const fullTravelData = {
-    start_addres,
-    end_addres,
+    start_address,
+    end_address,
     transportation,
     km,
     number_workers,
