@@ -37,6 +37,9 @@ const travelSchema = new Schema({
     required: true,
     default: false
   },
+  total_CO2: {
+    type: Number,
+  },
 })
 
 const Travel = model('Travel', travelSchema)

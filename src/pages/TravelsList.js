@@ -29,6 +29,7 @@ const TravelsList = () => {
                 <th scope="col">Personas en el viaje</th>
                 <th scope="col">Ida y vuelta</th>
                 <th scope="col">KGCO2 por persona</th>
+                <th scope="col">Total KGCO2 por viaje</th>
               </tr>
             </thead>
             <tbody>
@@ -38,13 +39,14 @@ const TravelsList = () => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>test</td>
-                    <td>{travel.start_addres}</td>
-                    <td>{travel.end_addres}</td>
+                    <td>{travel.start_address}</td>
+                    <td>{travel.end_address}</td>
                     <td>{travel.km}</td>
                     <td>{travel.transportation.transportation}</td>
                     <td>{travel.number_workers}</td>
                     <td>{travel.round_trip.toString()}</td>
                     <td>{travel.transportation.emission_factor}</td>
+                    <td>{travel.total_CO2}</td>
                   </tr>
                 )
               })
