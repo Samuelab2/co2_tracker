@@ -44,7 +44,7 @@ const TravelsList = () => {
                     <td>{travel.transportation.transportation}</td>
                     <td>{travel.number_workers}</td>
                     <td>{travel.round_trip.toString()}</td>
-                    <td>{travel.transportation.transportation.emission_factor}</td>
+                    <td>{travel.transportation.emission_factor}</td>
                   </tr>
                 )
               })
